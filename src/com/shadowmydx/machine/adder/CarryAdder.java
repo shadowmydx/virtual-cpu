@@ -17,6 +17,7 @@ public class CarryAdder implements CircuitPart {
 
 	@Override
 	public void getInput(Object input) {
+		// 0 adder 1, 1 adder 2, 2 carry bits
 		int[] a = (int[]) input;
 		int[] one = new int[2];
 		int[] two = new int[2];
@@ -40,5 +41,14 @@ public class CarryAdder implements CircuitPart {
 		result[1] = (int)orGate.sendOutput();
 		return result;
 	}
-
+	
+	public static void main(String[] args) {
+		int[] test = {1,0,1};
+		CarryAdder adder = new CarryAdder();
+		adder.getInput(test);
+		int[] results = (int[]) adder.sendOutput();
+		for (Integer num : results) {
+			System.out.print(num + " ");
+		}
+	}
 }

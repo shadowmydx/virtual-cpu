@@ -11,14 +11,21 @@ public class ANDGate implements CircuitPart {
 		int[] a = (int[]) input;
 		notGate1.getInput(a[0]);
 		notGate2.getInput(a[1]);
-		a[0] = (int)notGate1.sendOutput();
-		a[1] = (int)notGate2.sendOutput();
-		norGate.getInput(a);
+		int[] b = new int[2];
+		b[0] = (int)notGate1.sendOutput();
+		b[1] = (int)notGate2.sendOutput();
+		norGate.getInput(b);
 	}
 	@Override
 	public Object sendOutput() {
 		return norGate.sendOutput();
 	}
 	
-	
+	public static void main(String[] args) {
+		int[] test = {1,1};
+		ANDGate andGate = new ANDGate();
+		andGate.getInput(test);
+		int result = (int) andGate.sendOutput();
+		System.out.println(result);
+	}
 }

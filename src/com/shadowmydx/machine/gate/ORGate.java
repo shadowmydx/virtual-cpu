@@ -1,5 +1,6 @@
 package com.shadowmydx.machine.gate;
 
+import com.shadowmydx.machine.adder.CarryAdder;
 import com.shadowmydx.machine.basic.CircuitPart;
 
 public class ORGate implements CircuitPart {
@@ -17,5 +18,11 @@ public class ORGate implements CircuitPart {
 		// TODO Auto-generated method stub
 		return notGate.sendOutput();
 	}
-
+	public static void main(String[] args) {
+		int[] test = {0,0};
+		ORGate orGate = new ORGate();
+		orGate.getInput(test);
+		int result = (int) orGate.sendOutput();
+		System.out.println(result);
+	}
 }
